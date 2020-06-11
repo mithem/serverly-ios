@@ -20,9 +20,23 @@ class ServerDetailsViewController: UIViewController {
         refresh()
     }
     
+    func getAuthenticationString() -> String {
+        var userDefaults = UserDefaults()
+        return (userDefaults.string(forKey: "username") ?? "root") + ":" + (userDefaults.string(forKey: "password") ?? "1234")
+    }
+    
+    func getServerURL() -> String {
+        var userDefaults = UserDefaults()
+        var value = userDefaults.string(forKey: "serverURL") ?? "https://google.com/search?q="
+        if value.hasSuffix("/") {
+            value =  String(value[..<value.index(before: value.endIndex)])
+        }
+        return value
+    }
+    
     func loadSummaryUsers() {
-        let authenticationString = "mithem:migpasswort123"
-        let myurl = URL(string: "https://helix2.ddns.net/console/api/summary.users")!
+        let authenticationString = getAuthenticationString()
+        let myurl = URL(string: getServerURL() + "/console/api/summary.users")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
@@ -37,8 +51,8 @@ class ServerDetailsViewController: UIViewController {
     }
     
     func loadSummaryEndpoints() {
-        let authenticationString = "mithem:migpasswort123"
-        let myurl = URL(string: "https://helix2.ddns.net/console/api/summary.endpoints")!
+        let authenticationString = getAuthenticationString()
+        let myurl = URL(string: getServerURL() + "/console/api/summary.endpoints")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
@@ -53,8 +67,8 @@ class ServerDetailsViewController: UIViewController {
     }
     
     func loadSummaryStatistics() {
-        let authenticationString = "mithem:migpasswort123"
-        let myurl = URL(string: "https://helix2.ddns.net/console/api/summary.statistics")!
+        let authenticationString = getAuthenticationString()
+        let myurl = URL(string: getServerURL() + "/console/api/summary.statistics")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
