@@ -290,6 +290,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="k2W-Uh-Prg"/>
                     <connections>
+                        <outlet property="switchEnableNotifications" destination="AgW-NJ-Tuk" id="M8a-Vf-hty"/>
                         <outlet property="timePicker" destination="t23-QG-pA2" id="FUB-qu-FJ1"/>
                     </connections>
                 </viewController>

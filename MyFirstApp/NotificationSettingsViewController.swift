@@ -14,6 +14,7 @@ class NotificationSettingsViewController: UIViewController {
     
     @IBOutlet weak var timePicker: UIDatePicker!
     
+    @IBOutlet weak var switchEnableNotifications: UISwitch!
     
     @IBAction func enableNotificationsSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
@@ -35,7 +36,23 @@ class NotificationSettingsViewController: UIViewController {
                 DispatchQueue.main.sync {
                     dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.timePicker.date)
                 }
-                scheduleNotification(dateComponents: dateComponents!)
+                scheduleNotification(dateComponents: dateComponents!, callback: {success in
+                    if success {
+                        let alert = UIAlertController(title: "Scheduled notification", message: "The notification was successfully scheduled", preferredStyle: .actionSheet)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
+                        DispatchQueue.main.sync {
+                            self.switchEnableNotifications.isOn = true
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    } else {
+                        let alert = UIAlertController(title: "Unable to schedule notification", message: "Sorry but an error occured or the notification wasn't scheduled for another reason", preferredStyle: .actionSheet)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
+                        DispatchQueue.main.sync {
+                            self.switchEnableNotifications.isOn = true
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                })
             }
             else {
                 self.disableNotifications()
@@ -46,8 +63,10 @@ class NotificationSettingsViewController: UIViewController {
                     let alert = UIAlertController(title: "Notifications disabled", message: "You disabled notifications in settings or elsewhere.", preferredStyle: .actionSheet)
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
                     DispatchQueue.main.sync {
+                        self.switchEnableNotifications.isOn = false
                         self.present(alert, animated: true, completion: nil)
                     }
+                    UserDefaults().set(false, forKey: "notifications")
                 case .notDetermined:
                     let alert = UIAlertController(title: "Undetermined notification settings", message: "Please make sure to enable (or disable) notifications, preferably both in settings and this app", preferredStyle: .actionSheet)
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
@@ -72,5 +91,6 @@ class NotificationSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "notification settings"
+        switchEnableNotifications.isOn = UserDefaults().bool(forKey: "notifications")
     }
 }
