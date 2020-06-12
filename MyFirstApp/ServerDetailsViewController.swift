@@ -21,12 +21,12 @@ class ServerDetailsViewController: UIViewController {
     }
     
     func getAuthenticationString() -> String {
-        var userDefaults = UserDefaults()
+        let userDefaults = UserDefaults()
         return (userDefaults.string(forKey: "username") ?? "root") + ":" + (userDefaults.string(forKey: "password") ?? "1234")
     }
     
     func getServerURL() -> String {
-        var userDefaults = UserDefaults()
+        let userDefaults = UserDefaults()
         var value = userDefaults.string(forKey: "serverURL") ?? "https://google.com/search?q="
         if value.hasSuffix("/") {
             value =  String(value[..<value.index(before: value.endIndex)])
@@ -92,19 +92,5 @@ class ServerDetailsViewController: UIViewController {
         super.viewDidLoad()
         title = "serverly"
         refresh()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

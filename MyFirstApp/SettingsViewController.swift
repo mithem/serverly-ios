@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "settings"
-        var userDefaults = UserDefaults()
+        let userDefaults = UserDefaults()
         
         tfServerURL.text = userDefaults.string(forKey: "serverURL")
         tfUsername.text = userDefaults.string(forKey: "username")
@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func applyButtonTapped(_ sender: UIButton) {
-        var userDefaults = UserDefaults()
+        let userDefaults = UserDefaults()
         
         if tfServerURL.text == nil || tfServerURL.text == nil || tfUsername.text == nil {
             let alert = UIAlertController(title: "Invalid settings", message: "It appears that you didn't enter all fields; all are required though.", preferredStyle: .actionSheet)
@@ -38,6 +38,10 @@ class SettingsViewController: UIViewController {
             userDefaults.set(tfServerURL.text, forKey: "serverURL")
             userDefaults.set(tfUsername.text, forKey: "username")
             userDefaults.set(tfPassword.text, forKey: "password")
+            
+            let alert = UIAlertController(title: "Applied data", message: "Your authentication data is now saved.", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

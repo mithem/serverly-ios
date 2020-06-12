@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49811674249357D000313418 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49811673249357D000313418 /* NotificationSettingsViewController.swift */; };
+		49811676249360AC00313418 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49811675249360AC00313418 /* Notifications.swift */; };
 		49887DA124923E9E007CCE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA024923E9E007CCE87 /* AppDelegate.swift */; };
 		49887DA324923E9E007CCE87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA224923E9E007CCE87 /* SceneDelegate.swift */; };
 		49887DA524923E9E007CCE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA424923E9E007CCE87 /* ViewController.swift */; };
@@ -17,7 +19,22 @@
 		49887DB724923EC8007CCE87 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DB624923EC8007CCE87 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		49E794302492AF4500FEBBD2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		49811673249357D000313418 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		49811675249360AC00313418 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		49887D9D24923E9E007CCE87 /* MyFirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49887DA024923E9E007CCE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49887DA224923E9E007CCE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +45,7 @@
 		49887DAE24923E9E007CCE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49887DB424923EBF007CCE87 /* ServerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailsViewController.swift; sourceTree = "<group>"; };
 		49887DB624923EC8007CCE87 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		49E794242492AF4500FEBBD2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				49887D9F24923E9E007CCE87 /* MyFirstApp */,
+				49E794232492AF4500FEBBD2 /* Frameworks */,
 				49887D9E24923E9E007CCE87 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,8 +81,10 @@
 			children = (
 				49887DA024923E9E007CCE87 /* AppDelegate.swift */,
 				49887DA224923E9E007CCE87 /* SceneDelegate.swift */,
+				49811675249360AC00313418 /* Notifications.swift */,
 				49887DA424923E9E007CCE87 /* ViewController.swift */,
 				49887DA624923E9E007CCE87 /* Main.storyboard */,
+				49811673249357D000313418 /* NotificationSettingsViewController.swift */,
 				49887DB424923EBF007CCE87 /* ServerDetailsViewController.swift */,
 				49887DB624923EC8007CCE87 /* SettingsViewController.swift */,
 				49887DA924923E9E007CCE87 /* Assets.xcassets */,
@@ -71,6 +92,14 @@
 				49887DAE24923E9E007CCE87 /* Info.plist */,
 			);
 			path = MyFirstApp;
+			sourceTree = "<group>";
+		};
+		49E794232492AF4500FEBBD2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49E794242492AF4500FEBBD2 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +112,7 @@
 				49887D9924923E9E007CCE87 /* Sources */,
 				49887D9A24923E9E007CCE87 /* Frameworks */,
 				49887D9B24923E9E007CCE87 /* Resources */,
+				49E794302492AF4500FEBBD2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -145,7 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49887DB524923EBF007CCE87 /* ServerDetailsViewController.swift in Sources */,
+				49811676249360AC00313418 /* Notifications.swift in Sources */,
 				49887DA524923E9E007CCE87 /* ViewController.swift in Sources */,
+				49811674249357D000313418 /* NotificationSettingsViewController.swift in Sources */,
 				49887DA124923E9E007CCE87 /* AppDelegate.swift in Sources */,
 				49887DB724923EC8007CCE87 /* SettingsViewController.swift in Sources */,
 				49887DA324923E9E007CCE87 /* SceneDelegate.swift in Sources */,
