@@ -26,11 +26,11 @@ struct JSONDecodeError: Error {
     
 }
 
-func readJson(data: Data) throws -> Dictionary<String, Any> {
+func readJson(data: Data) throws -> Dictionary<String, Dictionary<String, String>> {
     // https://stackoverflow.com/questions/40438784/read-json-file-with-swift-3/40438849#40438849
     do {
             let json = try JSONSerialization.jsonObject(with: data, options: [])
-            if let object = json as? [String: Any] {
+            if let object = json as? [String: Dictionary<String, String>] {
                 return object
             } else { // only expect dicts from the server
                 throw JSONDecodeError()
@@ -39,4 +39,9 @@ func readJson(data: Data) throws -> Dictionary<String, Any> {
         print(error.localizedDescription)
         throw JSONDecodeError()
     }
+}
+
+struct Endpoint {
+    let path: String
+    let name: String
 }
