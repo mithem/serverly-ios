@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494563F3249623A800DB4364 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F2249623A800DB4364 /* UserDetailsViewController.swift */; };
+		494563F52496269400DB4364 /* EndpointDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F42496269400DB4364 /* EndpointDetailsViewController.swift */; };
+		494563F7249626C800DB4364 /* StatisticsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F6249626C800DB4364 /* StatisticsDetailsViewController.swift */; };
+		494563F92496278800DB4364 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F82496278800DB4364 /* Common.swift */; };
 		49811674249357D000313418 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49811673249357D000313418 /* NotificationSettingsViewController.swift */; };
 		49811676249360AC00313418 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49811675249360AC00313418 /* Notifications.swift */; };
 		49887DA124923E9E007CCE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA024923E9E007CCE87 /* AppDelegate.swift */; };
@@ -33,9 +37,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		494563F2249623A800DB4364 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		494563F42496269400DB4364 /* EndpointDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointDetailsViewController.swift; sourceTree = "<group>"; };
+		494563F6249626C800DB4364 /* StatisticsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsViewController.swift; sourceTree = "<group>"; };
+		494563F82496278800DB4364 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		49811673249357D000313418 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		49811675249360AC00313418 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		49887D9D24923E9E007CCE87 /* MyFirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49887D9D24923E9E007CCE87 /* serverly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serverly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49887DA024923E9E007CCE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49887DA224923E9E007CCE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		49887DA424923E9E007CCE87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +70,7 @@
 		49887D9424923E9E007CCE87 = {
 			isa = PBXGroup;
 			children = (
-				49887D9F24923E9E007CCE87 /* MyFirstApp */,
+				49887D9F24923E9E007CCE87 /* serverly */,
 				49E794232492AF4500FEBBD2 /* Frameworks */,
 				49887D9E24923E9E007CCE87 /* Products */,
 			);
@@ -71,12 +79,12 @@
 		49887D9E24923E9E007CCE87 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49887D9D24923E9E007CCE87 /* MyFirstApp.app */,
+				49887D9D24923E9E007CCE87 /* serverly.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		49887D9F24923E9E007CCE87 /* MyFirstApp */ = {
+		49887D9F24923E9E007CCE87 /* serverly */ = {
 			isa = PBXGroup;
 			children = (
 				49887DA024923E9E007CCE87 /* AppDelegate.swift */,
@@ -84,14 +92,18 @@
 				49811675249360AC00313418 /* Notifications.swift */,
 				49887DA424923E9E007CCE87 /* ViewController.swift */,
 				49887DA624923E9E007CCE87 /* Main.storyboard */,
+				494563F42496269400DB4364 /* EndpointDetailsViewController.swift */,
+				494563F6249626C800DB4364 /* StatisticsDetailsViewController.swift */,
+				494563F2249623A800DB4364 /* UserDetailsViewController.swift */,
 				49811673249357D000313418 /* NotificationSettingsViewController.swift */,
 				49887DB424923EBF007CCE87 /* ServerDetailsViewController.swift */,
 				49887DB624923EC8007CCE87 /* SettingsViewController.swift */,
+				494563F82496278800DB4364 /* Common.swift */,
 				49887DA924923E9E007CCE87 /* Assets.xcassets */,
 				49887DAB24923E9E007CCE87 /* LaunchScreen.storyboard */,
 				49887DAE24923E9E007CCE87 /* Info.plist */,
 			);
-			path = MyFirstApp;
+			path = serverly;
 			sourceTree = "<group>";
 		};
 		49E794232492AF4500FEBBD2 /* Frameworks */ = {
@@ -105,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		49887D9C24923E9E007CCE87 /* MyFirstApp */ = {
+		49887D9C24923E9E007CCE87 /* serverly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49887DB124923E9E007CCE87 /* Build configuration list for PBXNativeTarget "MyFirstApp" */;
+			buildConfigurationList = 49887DB124923E9E007CCE87 /* Build configuration list for PBXNativeTarget "serverly" */;
 			buildPhases = (
 				49887D9924923E9E007CCE87 /* Sources */,
 				49887D9A24923E9E007CCE87 /* Frameworks */,
@@ -118,9 +130,9 @@
 			);
 			dependencies = (
 			);
-			name = MyFirstApp;
+			name = serverly;
 			productName = MyFirstApp;
-			productReference = 49887D9D24923E9E007CCE87 /* MyFirstApp.app */;
+			productReference = 49887D9D24923E9E007CCE87 /* serverly.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +150,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 49887D9824923E9E007CCE87 /* Build configuration list for PBXProject "MyFirstApp" */;
+			buildConfigurationList = 49887D9824923E9E007CCE87 /* Build configuration list for PBXProject "serverly" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -151,7 +163,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				49887D9C24923E9E007CCE87 /* MyFirstApp */,
+				49887D9C24923E9E007CCE87 /* serverly */,
 			);
 		};
 /* End PBXProject section */
@@ -176,11 +188,15 @@
 			files = (
 				49887DB524923EBF007CCE87 /* ServerDetailsViewController.swift in Sources */,
 				49811676249360AC00313418 /* Notifications.swift in Sources */,
+				494563F52496269400DB4364 /* EndpointDetailsViewController.swift in Sources */,
 				49887DA524923E9E007CCE87 /* ViewController.swift in Sources */,
+				494563F92496278800DB4364 /* Common.swift in Sources */,
+				494563F7249626C800DB4364 /* StatisticsDetailsViewController.swift in Sources */,
 				49811674249357D000313418 /* NotificationSettingsViewController.swift in Sources */,
 				49887DA124923E9E007CCE87 /* AppDelegate.swift in Sources */,
 				49887DB724923EC8007CCE87 /* SettingsViewController.swift in Sources */,
 				49887DA324923E9E007CCE87 /* SceneDelegate.swift in Sources */,
+				494563F3249623A800DB4364 /* UserDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,13 +342,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHQFP8C3YS;
-				INFOPLIST_FILE = MyFirstApp/Info.plist;
+				INFOPLIST_FILE = serverly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mithem.MyFirstApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = mithem.serverly;
+				PRODUCT_NAME = serverly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -344,13 +360,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHQFP8C3YS;
-				INFOPLIST_FILE = MyFirstApp/Info.plist;
+				INFOPLIST_FILE = serverly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mithem.MyFirstApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = mithem.serverly;
+				PRODUCT_NAME = serverly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -359,7 +375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		49887D9824923E9E007CCE87 /* Build configuration list for PBXProject "MyFirstApp" */ = {
+		49887D9824923E9E007CCE87 /* Build configuration list for PBXProject "serverly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49887DAF24923E9E007CCE87 /* Debug */,
@@ -368,7 +384,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49887DB124923E9E007CCE87 /* Build configuration list for PBXNativeTarget "MyFirstApp" */ = {
+		49887DB124923E9E007CCE87 /* Build configuration list for PBXNativeTarget "serverly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49887DB224923E9E007CCE87 /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  NotificationSettingsViewController.swift
-//  MyFirstApp
+//  serverly
 //
 //  Created by Miguel Themann on 12.06.20.
 //  Copyright © 2020 Miguel Themann. All rights reserved.

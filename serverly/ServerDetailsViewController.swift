@@ -1,6 +1,6 @@
 //
 //  ServerDetailsViewController.swift
-//  MyFirstApp
+//  serverly
 //
 //  Created by Miguel Themann on 11.06.20.
 //  Copyright © 2020 Miguel Themann. All rights reserved.
@@ -18,20 +18,6 @@ class ServerDetailsViewController: UIViewController {
     
     @IBAction func bRefreshTapped(_ sender: UIButton) {
         refresh()
-    }
-    
-    func getAuthenticationString() -> String {
-        let userDefaults = UserDefaults()
-        return (userDefaults.string(forKey: "username") ?? "root") + ":" + (userDefaults.string(forKey: "password") ?? "1234")
-    }
-    
-    func getServerURL() -> String {
-        let userDefaults = UserDefaults()
-        var value = userDefaults.string(forKey: "serverURL") ?? "https://google.com/search?q="
-        if value.hasSuffix("/") {
-            value =  String(value[..<value.index(before: value.endIndex)])
-        }
-        return value
     }
     
     func loadSummaryUsers() {
@@ -92,5 +78,5 @@ class ServerDetailsViewController: UIViewController {
         super.viewDidLoad()
         title = "serverly"
         refresh()
-    }
+    }    
 }

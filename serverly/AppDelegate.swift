@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MyFirstApp
+//  serverly
 //
 //  Created by Miguel Themann on 11.06.20.
 //  Copyright © 2020 Miguel Themann. All rights reserved.
