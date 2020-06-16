@@ -41,7 +41,9 @@ func readJson(data: Data) throws -> Dictionary<String, Dictionary<String, String
     }
 }
 
-struct Endpoint {
-    let path: String
-    let name: String
-}
+let HTTPMethodMap = [
+    "get": "GET",
+    "post": "POS",
+    "put": "PUT",
+    "delete": "DEL"
+]
