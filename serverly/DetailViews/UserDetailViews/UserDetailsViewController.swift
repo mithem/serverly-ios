@@ -9,13 +9,61 @@
 import UIKit
 
 class UserDetailsViewController: UIViewController {
+    
+    var tableView = UITableView()
+    var users = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUsersDetails()
     }
     
-    func loadUsersDetails() {
-        print("loading details!")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadUsers()
+    }
+    
+    func configure() {
+        DispatchQueue.main.async {
+            self.view.addSubview(self.tableView)
+            self.tableView.pin(to: self.view)
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.rowHeight = 40
+            self.tableView.register(UserDetailsTableViewCell.self, forCellReuseIdentifier: "UserCell")
+        }
+    }
+    
+    func loadUsers() {
+        let authenticationString = getAuthenticationString()
+        let myurl = URL(string: getServerURL() + "/console/api/users.get?attrs=id,username")!
+        var request = URLRequest(url: myurl)
+        request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if error != nil {
+                self.presentOKAlertOnMainThread(title: "Error getting data", message: "The following error occured: \(error!)")
+                return
+            }
+            do {
+                self.users = try JSONDecoder().decode([User].self, from: data!)
+                self.configure()
+            } catch {
+                self.presentOKAlertOnMainThread(title: "Error parsing data", message: "The JSON data could not be parsed.")
+                return
+            }
+        }
+        task.resume()
+    }
+}
+
+extension UserDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UserDetailsTableViewCell(style: .default, reuseIdentifier: "UserCell")
+        cell.set(id: users[indexPath.row].id, username: users[indexPath.row].username)
+        return cell
     }
 }

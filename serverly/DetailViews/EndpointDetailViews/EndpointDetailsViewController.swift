@@ -31,7 +31,10 @@ class EndpointDetailsViewController: UIViewController {
         
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             guard let data = data else { return }
-            // let str = String(data: data, encoding: .utf8)!
+            if error != nil {
+                self.presentOKAlertOnMainThread(title: "An error occured", message: "The following error occured while getting the response from the server: \(String(describing: error))")
+            }
+            
             let parsedData: Dictionary? = try? readJson(data: Data(data))
             let d = parsedData ?? Dictionary<String, Dictionary<String, String>>()
             for (method, endpoint) in d {
@@ -49,9 +52,7 @@ class EndpointDetailsViewController: UIViewController {
                     case "delete":
                         self.deleteEndpoints = arr
                     default:
-                        let alert = UIAlertController(title: "Error parsing server data", message: "It seems like the method \(method) is unsupported by this app", preferredStyle: .actionSheet)
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+                        self.presentOKAlertOnMainThread(title: "Error parsing server data", message: "It seems like the method \(method) is unsupported by this app :/")
                 }
             }
             self.getEndpoints.sort {d1, d2 in
@@ -115,9 +116,7 @@ extension EndpointDetailsViewController: UITableViewDelegate, UITableViewDataSou
             arr = deleteEndpoints
         default:
             arr = [Dictionary<String, String>]()
-            let alert = UIAlertController(title: "Something is wrong.", message: "This app is really not designed well.", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.presentOKAlertOnMainThread(title: "Something went wrong", message: "This app is really not designed well :/")
         }
         cell.set(path: arr[indexPath.row - offset]["path"] ?? "invalid path", name: arr[indexPath.row - offset]["name"] ?? "invalid name", method: method)
         return cell

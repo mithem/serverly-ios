@@ -77,6 +77,10 @@ class ServerDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "serverly"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refresh()
-    }    
+    }
 }

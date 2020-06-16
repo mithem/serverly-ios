@@ -23,6 +23,9 @@
 		49887DAD24923E9E007CCE87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49887DAB24923E9E007CCE87 /* LaunchScreen.storyboard */; };
 		49887DB524923EBF007CCE87 /* ServerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DB424923EBF007CCE87 /* ServerDetailsViewController.swift */; };
 		49887DB724923EC8007CCE87 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DB624923EC8007CCE87 /* SettingsViewController.swift */; };
+		499FCCA124991B6400B4B33E /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */; };
+		499FCCA324992B5D00B4B33E /* UserDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA224992B5D00B4B33E /* UserDetailsTableViewCell.swift */; };
+		499FCCA72499335D00B4B33E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA62499335D00B4B33E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +60,10 @@
 		49887DAE24923E9E007CCE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49887DB424923EBF007CCE87 /* ServerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailsViewController.swift; sourceTree = "<group>"; };
 		49887DB624923EC8007CCE87 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		499FCC9F2499168500B4B33E /* serverly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = serverly.entitlements; sourceTree = "<group>"; };
+		499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		499FCCA224992B5D00B4B33E /* UserDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		499FCCA62499335D00B4B33E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		49E794242492AF4500FEBBD2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -94,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				494563F2249623A800DB4364 /* UserDetailsViewController.swift */,
+				499FCCA224992B5D00B4B33E /* UserDetailsTableViewCell.swift */,
+				499FCCA62499335D00B4B33E /* User.swift */,
 			);
 			path = UserDetailViews;
 			sourceTree = "<group>";
@@ -109,7 +118,7 @@
 		49887D9424923E9E007CCE87 = {
 			isa = PBXGroup;
 			children = (
-				494563FE249649DF00DB4364 /* UIViewExt.swift */,
+				499FCC9E2499166D00B4B33E /* Extensions */,
 				49887D9F24923E9E007CCE87 /* serverly */,
 				49E794232492AF4500FEBBD2 /* Frameworks */,
 				49887D9E24923E9E007CCE87 /* Products */,
@@ -127,6 +136,7 @@
 		49887D9F24923E9E007CCE87 /* serverly */ = {
 			isa = PBXGroup;
 			children = (
+				499FCC9F2499168500B4B33E /* serverly.entitlements */,
 				49887DA024923E9E007CCE87 /* AppDelegate.swift */,
 				49887DA224923E9E007CCE87 /* SceneDelegate.swift */,
 				49811675249360AC00313418 /* Notifications.swift */,
@@ -142,6 +152,15 @@
 				49887DAE24923E9E007CCE87 /* Info.plist */,
 			);
 			path = serverly;
+			sourceTree = "<group>";
+		};
+		499FCC9E2499166D00B4B33E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				494563FE249649DF00DB4364 /* UIViewExt.swift */,
+				499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		49E794232492AF4500FEBBD2 /* Frameworks */ = {
@@ -228,6 +247,7 @@
 				49887DB524923EBF007CCE87 /* ServerDetailsViewController.swift in Sources */,
 				49811676249360AC00313418 /* Notifications.swift in Sources */,
 				494563F52496269400DB4364 /* EndpointDetailsViewController.swift in Sources */,
+				499FCCA72499335D00B4B33E /* User.swift in Sources */,
 				49887DA524923E9E007CCE87 /* ViewController.swift in Sources */,
 				494563F92496278800DB4364 /* Common.swift in Sources */,
 				494563F7249626C800DB4364 /* StatisticsDetailsViewController.swift in Sources */,
@@ -236,6 +256,8 @@
 				49887DB724923EC8007CCE87 /* SettingsViewController.swift in Sources */,
 				49887DA324923E9E007CCE87 /* SceneDelegate.swift in Sources */,
 				494563F3249623A800DB4364 /* UserDetailsViewController.swift in Sources */,
+				499FCCA124991B6400B4B33E /* UIViewControllerExt.swift in Sources */,
+				499FCCA324992B5D00B4B33E /* UserDetailsTableViewCell.swift in Sources */,
 				4945640324964C4200DB4364 /* EndpointDetailsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,15 +402,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = serverly/serverly.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHQFP8C3YS;
 				INFOPLIST_FILE = serverly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mithem.serverly;
 				PRODUCT_NAME = serverly;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -398,15 +423,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = serverly/serverly.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHQFP8C3YS;
 				INFOPLIST_FILE = serverly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mithem.serverly;
 				PRODUCT_NAME = serverly;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

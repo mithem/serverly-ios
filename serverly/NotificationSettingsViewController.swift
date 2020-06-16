@@ -38,18 +38,14 @@ class NotificationSettingsViewController: UIViewController {
                 }
                 scheduleNotification(dateComponents: dateComponents!, callback: {success in
                     if success {
-                        let alert = UIAlertController(title: "Scheduled notification", message: "The notification was successfully scheduled", preferredStyle: .actionSheet)
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
+                        self.presentOKAlertOnMainThread(title: "Scheduled notification", message: "Scheduled notification successfully!")
                         DispatchQueue.main.sync {
                             self.switchEnableNotifications.isOn = true
-                            self.present(alert, animated: true, completion: nil)
                         }
                     } else {
-                        let alert = UIAlertController(title: "Unable to schedule notification", message: "Sorry but an error occured or the notification wasn't scheduled for another reason", preferredStyle: .actionSheet)
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
+                        self.presentOKAlertOnMainThread(title: "Unable to schedule notification", message: "Sorry, an error occured or the notification wasn't scheduled for another reason.")
                         DispatchQueue.main.sync {
                             self.switchEnableNotifications.isOn = true
-                            self.present(alert, animated: true, completion: nil)
                         }
                     }
                 })
@@ -59,22 +55,16 @@ class NotificationSettingsViewController: UIViewController {
             }
             center.getNotificationSettings { settings in
                 switch settings.authorizationStatus{
-                case .denied:
-                    let alert = UIAlertController(title: "Notifications disabled", message: "You disabled notifications in settings or elsewhere.", preferredStyle: .actionSheet)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
-                    DispatchQueue.main.sync {
-                        self.switchEnableNotifications.isOn = false
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    UserDefaults().set(false, forKey: "notifications")
-                case .notDetermined:
-                    let alert = UIAlertController(title: "Undetermined notification settings", message: "Please make sure to enable (or disable) notifications, preferably both in settings and this app", preferredStyle: .actionSheet)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
-                    DispatchQueue.main.sync {
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                default:
-                    let a = 0
+                    case .denied:
+                        self.presentOKAlertOnMainThread(title: "Notifications disabled", message: "You disabled notifications in settings or elsewhere.")
+                        DispatchQueue.main.sync {
+                            self.switchEnableNotifications.isOn = false
+                        }
+                        UserDefaults().set(false, forKey: "notifications")
+                    case .notDetermined:
+                        self.presentOKAlertOnMainThread(title: "Undetermined notification settings", message: "Please make sure to enable (or disable) notifications, preferably both in settings and this app")
+                    default:
+                        let a = 0
                 }
             }
         })
