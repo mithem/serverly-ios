@@ -16,11 +16,35 @@ class EndpointDetailsViewController: UIViewController {
     var postEndpoints = [Dictionary<String, String>]()
     var putEndpoints = [Dictionary<String, String>]()
     var deleteEndpoints = [Dictionary<String, String>]()
+    var colors = Dictionary<String, UIColor>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "endpoints"
+        loadSettings()
         loadEndpoints()
+    }
+    
+    func loadSettings() {
+        func getColor(_ c: Int) -> UIColor {
+            switch(c) {
+            case 1:
+                return UIColor.systemGreen
+            case 2:
+                return UIColor.systemBlue
+            case 3:
+                return UIColor.systemYellow
+            case 4:
+                return UIColor.systemRed
+            default:
+                return UIColor.label
+            }
+        }
+        let userDefaults = UserDefaults()
+        colors["get"] = getColor(userDefaults.integer(forKey: "colorForGET"))
+        colors["post"] = getColor(userDefaults.integer(forKey: "colorForPOST"))
+        colors["put"] = getColor(userDefaults.integer(forKey: "colorForPUT"))
+        colors["delete"] = getColor(userDefaults.integer(forKey: "colorForDELETE"))
     }
     
     func loadEndpoints() {
@@ -118,7 +142,7 @@ extension EndpointDetailsViewController: UITableViewDelegate, UITableViewDataSou
             arr = [Dictionary<String, String>]()
             self.presentOKAlertOnMainThread(title: "Something went wrong", message: "This app is really not designed well :/")
         }
-        cell.set(path: arr[indexPath.row - offset]["path"] ?? "invalid path", name: arr[indexPath.row - offset]["name"] ?? "invalid name", method: method)
+        cell.set(path: arr[indexPath.row - offset]["path"] ?? "invalid path", name: arr[indexPath.row - offset]["name"] ?? "invalid name", method: method, color: colors[method] ?? UIColor.label)
         return cell
     }
 }

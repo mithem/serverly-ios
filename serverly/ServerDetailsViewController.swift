@@ -20,6 +20,14 @@ class ServerDetailsViewController: UIViewController {
         refresh()
     }
     
+    private func getLabelText(data: Data?, error: Error?) -> String{
+        var str = String(data: ((data ?? "no data".data(using: .utf8)!)), encoding: .utf8) ?? "no response"
+        if error != nil {
+            str = "Error: \(String(describing: error!.localizedDescription))"
+        }
+        return str
+    }
+    
     func loadSummaryUsers() {
         let authenticationString = getAuthenticationString()
         let myurl = URL(string: getServerURL() + "/console/api/summary.users")!
@@ -27,9 +35,8 @@ class ServerDetailsViewController: UIViewController {
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            guard let data = data else { return }
             DispatchQueue.main.async {
-                self.lSummaryUsers.text = String(data: data, encoding: .utf8) ?? "no response"
+                self.lSummaryUsers.text = self.getLabelText(data: data, error: error)
             }
         }
 
@@ -43,9 +50,8 @@ class ServerDetailsViewController: UIViewController {
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            guard let data = data else { return }
             DispatchQueue.main.async {
-                self.lSummaryEndpoints.text = String(data: data, encoding: .utf8) ?? "no response"
+                self.lSummaryEndpoints.text = self.getLabelText(data: data, error: error)
             }
         }
 
@@ -59,9 +65,8 @@ class ServerDetailsViewController: UIViewController {
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            guard let data = data else { return }
             DispatchQueue.main.async {
-                self.lSummaryStatistics.text = String(data: data, encoding: .utf8) ?? "no response"
+                self.lSummaryStatistics.text = self.getLabelText(data: data, error: error)
             }
         }
 

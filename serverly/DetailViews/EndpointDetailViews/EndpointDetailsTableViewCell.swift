@@ -22,8 +22,9 @@ class EndpointDetailsTableViewCell: UITableViewCell {
         configure()
     }
     
-    func set(path: String, name: String, method: String) {
+    func set(path: String, name: String, method: String, color: UIColor) {
         lMethod.text = HTTPMethodMap[method] ?? "N/A"
+        lMethod.textColor = color
         lPath.text = path
         lName.text = name
     }

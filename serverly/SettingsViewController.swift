@@ -26,23 +26,17 @@ class SettingsViewController: UIViewController {
         tfPassword.text = userDefaults.string(forKey: "password")
     }
     
-    @IBAction func applyButtonTapped(_ sender: UIButton) {
-        let userDefaults = UserDefaults()
-        
-        if tfServerURL.text == nil || tfServerURL.text == nil || tfUsername.text == nil {
-            let alert = UIAlertController(title: "Invalid settings", message: "It appears that you didn't enter all fields; all are required though.", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
-            self.present(alert, animated: true, completion: nil)
-        }
-        else {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        apply()
+    }
+    
+    func apply(){
+        if tfServerURL.text != nil && tfUsername.text != nil && tfPassword.text != nil && tfServerURL.text != "" && tfUsername.text != "" && tfPassword.text != ""{
+            let userDefaults = UserDefaults()
             userDefaults.set(tfServerURL.text, forKey: "serverURL")
             userDefaults.set(tfUsername.text, forKey: "username")
             userDefaults.set(tfPassword.text, forKey: "password")
-            
-            let alert = UIAlertController(title: "Applied data", message: "Your authentication data is now saved.", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
-            self.present(alert, animated: true, completion: nil)
         }
     }
-    
 }

@@ -12,14 +12,17 @@ class UserDetailsTableViewCell: UITableViewCell {
     
     var lId = UILabel()
     var lUsername = UILabel()
+    
+    let usernameHeight = 20
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(lId)
         addSubview(lUsername)
-        configure()
+        configureLayout()
     }
-    func configure() {
+    
+    func configureLayout() {
         lId.numberOfLines = 1
         lUsername.numberOfLines = 0
         
@@ -27,14 +30,16 @@ class UserDetailsTableViewCell: UITableViewCell {
         lUsername.adjustsFontSizeToFitWidth = true
         
         lId.translatesAutoresizingMaskIntoConstraints = false
-        lId.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        lId.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        lId.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
         lUsername.translatesAutoresizingMaskIntoConstraints = false
+        
+        lId.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        lId.widthAnchor.constraint(equalToConstant: 75).isActive = true
+        lId.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        lId.textAlignment = .right
+        
+        lUsername.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         lUsername.leadingAnchor.constraint(equalTo: lId.trailingAnchor, constant: 10).isActive = true
         lUsername.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        lId.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         lId.font = UIFont.boldSystemFont(ofSize: 20)
     }
