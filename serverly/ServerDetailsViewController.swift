@@ -82,6 +82,7 @@ class ServerDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "serverly"
+        URLSessionConfiguration.default.timeoutIntervalForRequest = 5
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -20,7 +20,7 @@ class CustomizationSettingsViewController: UIViewController {
         loadSettings()
     }
     @IBAction func scMethodChanged(_ sender: UISegmentedControl) {
-        scColor.selectedSegmentIndex = UserDefaults().integer(forKey: getKeyName(sender.selectedSegmentIndex))
+        scColor.selectedSegmentIndex = UserDefaults().integer(forKey: getKeyName())
     }
     
     @IBAction func scColorChanged(_ sender: UISegmentedControl) {
@@ -33,7 +33,7 @@ class CustomizationSettingsViewController: UIViewController {
         scColor.selectedSegmentIndex = userDefaults.integer(forKey: "colorForGET")
     }
     
-    func getKeyName(_ i: Int) -> String {
+    func getKeyName() -> String {
         switch scMethod.selectedSegmentIndex {
         case 0:
             return  "colorForGET"
@@ -50,6 +50,6 @@ class CustomizationSettingsViewController: UIViewController {
     
     func apply() {
         let userDefaults = UserDefaults()
-        userDefaults.set(scColor.selectedSegmentIndex, forKey: getKeyName(scColor.selectedSegmentIndex))
+        userDefaults.set(scColor.selectedSegmentIndex, forKey: getKeyName())
     }
 }

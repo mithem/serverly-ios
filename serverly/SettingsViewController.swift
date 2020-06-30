@@ -16,6 +16,10 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tfPassword: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var innerScrollViewGroup: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "settings"
@@ -24,6 +28,9 @@ class SettingsViewController: UIViewController {
         tfServerURL.text = userDefaults.string(forKey: "serverURL")
         tfUsername.text = userDefaults.string(forKey: "username")
         tfPassword.text = userDefaults.string(forKey: "password")
+        
+        let fullScreenRect = UIScreen.main.bounds
+        scrollView.contentSize = CGSize(width: fullScreenRect.width, height: innerScrollViewGroup.frame.height + 50) // Navbar title
     }
     
     override func viewWillDisappear(_ animated: Bool) {

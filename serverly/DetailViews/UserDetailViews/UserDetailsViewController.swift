@@ -8,9 +8,8 @@
 
 import UIKit
 
-class UserDetailsViewController: UIViewController {
+class UserDetailsViewController: UITableViewController {
     
-    var tableView = UITableView()
     var users = [User]()
 
     override func viewDidLoad() {
@@ -56,12 +55,12 @@ class UserDetailsViewController: UIViewController {
     }
 }
 
-extension UserDetailsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension UserDetailsViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UserDetailsTableViewCell(style: .default, reuseIdentifier: "UserCell")
         cell.set(id: users[indexPath.row].id, username: users[indexPath.row].username)
         return cell
