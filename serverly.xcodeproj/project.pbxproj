@@ -11,7 +11,6 @@
 		494563F3249623A800DB4364 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F2249623A800DB4364 /* UserDetailsViewController.swift */; };
 		494563F52496269400DB4364 /* EndpointDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F42496269400DB4364 /* EndpointDetailsViewController.swift */; };
 		494563F7249626C800DB4364 /* StatisticsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F6249626C800DB4364 /* StatisticsDetailsViewController.swift */; };
-		494563F92496278800DB4364 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563F82496278800DB4364 /* Common.swift */; };
 		494563FF249649DF00DB4364 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563FE249649DF00DB4364 /* UIViewExt.swift */; };
 		4945640324964C4200DB4364 /* EndpointDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4945640224964C4200DB4364 /* EndpointDetailsTableViewCell.swift */; };
 		4953511B249B7AB6003DB581 /* CustomizationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4953511A249B7AB6003DB581 /* CustomizationSettingsViewController.swift */; };
@@ -32,6 +31,9 @@
 		499FCCA72499335D00B4B33E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA62499335D00B4B33E /* User.swift */; };
 		49B85C7A249F6C8C00E4F7A2 /* serverlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B85C79249F6C8C00E4F7A2 /* serverlyTests.swift */; };
 		49B85C82249F6CB000E4F7A2 /* CustomizationSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B85C81249F6CB000E4F7A2 /* CustomizationSettingsTests.swift */; };
+		49F3030524AB380700476406 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030424AB380700476406 /* OverviewView.swift */; };
+		49F3030724AB388A00476406 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030624AB388A00476406 /* SummaryView.swift */; };
+		49F3030A24AB3B9900476406 /* shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030924AB3B9900476406 /* shared.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,6 @@
 		494563F2249623A800DB4364 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		494563F42496269400DB4364 /* EndpointDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointDetailsViewController.swift; sourceTree = "<group>"; };
 		494563F6249626C800DB4364 /* StatisticsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsViewController.swift; sourceTree = "<group>"; };
-		494563F82496278800DB4364 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		494563FE249649DF00DB4364 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		4945640224964C4200DB4364 /* EndpointDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		4953511A249B7AB6003DB581 /* CustomizationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationSettingsViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +90,9 @@
 		49B85C7B249F6C8C00E4F7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B85C81249F6CB000E4F7A2 /* CustomizationSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationSettingsTests.swift; sourceTree = "<group>"; };
 		49E794242492AF4500FEBBD2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		49F3030424AB380700476406 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
+		49F3030624AB388A00476406 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		49F3030924AB3B9900476406 /* shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shared.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 		49887D9424923E9E007CCE87 = {
 			isa = PBXGroup;
 			children = (
+				49F3030824AB3B8800476406 /* Shared */,
 				499FCC9E2499166D00B4B33E /* Extensions */,
 				49887D9F24923E9E007CCE87 /* serverly */,
 				49B85C78249F6C8C00E4F7A2 /* serverlyTests */,
@@ -183,10 +188,11 @@
 				49811673249357D000313418 /* NotificationSettingsViewController.swift */,
 				49887DB424923EBF007CCE87 /* ServerDetailsViewController.swift */,
 				49887DB624923EC8007CCE87 /* SettingsViewController.swift */,
-				494563F82496278800DB4364 /* Common.swift */,
 				49887DA924923E9E007CCE87 /* Assets.xcassets */,
 				49887DAB24923E9E007CCE87 /* LaunchScreen.storyboard */,
 				49887DAE24923E9E007CCE87 /* Info.plist */,
+				49F3030424AB380700476406 /* OverviewView.swift */,
+				49F3030624AB388A00476406 /* SummaryView.swift */,
 			);
 			path = serverly;
 			sourceTree = "<group>";
@@ -216,6 +222,14 @@
 				49E794242492AF4500FEBBD2 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49F3030824AB3B8800476406 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				49F3030924AB3B9900476406 /* shared.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,11 +338,12 @@
 				4956A186249BCE6A00D8349C /* StatisticsTableViewCell.swift in Sources */,
 				494563FF249649DF00DB4364 /* UIViewExt.swift in Sources */,
 				49887DB524923EBF007CCE87 /* ServerDetailsViewController.swift in Sources */,
+				49F3030524AB380700476406 /* OverviewView.swift in Sources */,
 				49811676249360AC00313418 /* Notifications.swift in Sources */,
 				494563F52496269400DB4364 /* EndpointDetailsViewController.swift in Sources */,
 				499FCCA72499335D00B4B33E /* User.swift in Sources */,
 				49887DA524923E9E007CCE87 /* ViewController.swift in Sources */,
-				494563F92496278800DB4364 /* Common.swift in Sources */,
+				49F3030A24AB3B9900476406 /* shared.swift in Sources */,
 				494563F7249626C800DB4364 /* StatisticsDetailsViewController.swift in Sources */,
 				49811674249357D000313418 /* NotificationSettingsViewController.swift in Sources */,
 				49887DA124923E9E007CCE87 /* AppDelegate.swift in Sources */,
@@ -337,6 +352,7 @@
 				49887DA324923E9E007CCE87 /* SceneDelegate.swift in Sources */,
 				494563F3249623A800DB4364 /* UserDetailsViewController.swift in Sources */,
 				499FCCA124991B6400B4B33E /* UIViewControllerExt.swift in Sources */,
+				49F3030724AB388A00476406 /* SummaryView.swift in Sources */,
 				499FCCA324992B5D00B4B33E /* UserDetailsTableViewCell.swift in Sources */,
 				4945640324964C4200DB4364 /* EndpointDetailsTableViewCell.swift in Sources */,
 				4953511B249B7AB6003DB581 /* CustomizationSettingsViewController.swift in Sources */,
@@ -432,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -486,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -504,7 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHQFP8C3YS;
 				INFOPLIST_FILE = serverly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +529,7 @@
 				PRODUCT_NAME = serverly;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -525,7 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHQFP8C3YS;
 				INFOPLIST_FILE = serverly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +550,7 @@
 				PRODUCT_NAME = serverly;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
