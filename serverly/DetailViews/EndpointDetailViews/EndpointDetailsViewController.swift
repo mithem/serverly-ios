@@ -49,7 +49,7 @@ class EndpointDetailsViewController: UIViewController {
     
     func loadEndpoints() {
         let authenticationString = getAuthenticationString()
-        let myurl = URL(string: getServerURL() + "/console/api/endpoints")!
+        let myurl = URL(string: (try? getServerURL()) ?? "https://google.com" + "/console/api/endpoints")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         

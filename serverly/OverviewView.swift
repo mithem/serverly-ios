@@ -19,11 +19,29 @@ struct Serverly: App {
 
 struct OverviewView: View {
     @State var summaryUsers: String? = nil
+    let summaryUsersView = SummaryView(kind: "users")
+    let summaryEndpointsView = SummaryView(kind: "endpoints")
+    let summaryStatisticsView = SummaryView(kind: "statistics")
     var body: some View {
         NavigationView {
-            NavigationLink(destination: Text("hello world")){
-                SummaryView(kind: "users")
+            Group {
+                VStack {
+                    NavigationLink(destination: UserDetailsView()) {
+                        summaryUsersView
+                    }
+                    .padding([.top, .bottom])
+                    NavigationLink(destination: Text("hello world 2")) {
+                        summaryEndpointsView
+                    }
+                    .padding(.bottom)
+                    NavigationLink(destination: Text("hello world 3")) {
+                        summaryStatisticsView
+                    }
+                    Spacer()
+                }
             }
+            .navigationTitle("serverly")
+            .navigationBarItems(trailing: NavigationLink("settings", destination: SettingsView())).foregroundColor(.black).font(.system(size: 16, weight: .medium, design: .default))
         }
     }
 }

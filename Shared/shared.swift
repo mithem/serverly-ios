@@ -13,20 +13,24 @@ func getAuthenticationString() -> String {
     return (userDefaults.string(forKey: "username") ?? "root") + ":" + (userDefaults.string(forKey: "password") ?? "1234")
 }
 
-func getServerURL() -> String {
+func getServerURL() throws -> String {
     let userDefaults = UserDefaults()
     var value = userDefaults.string(forKey: "serverURL") ?? "https://google.com/search?q="
     if value.hasSuffix("/") {
         value =  String(value[..<value.index(before: value.endIndex)])
     }
+    if value.isEmpty {
+        throw ServerlyError.InvalidConfigurationError
+    }
     return value
 }
 
-func getResponse<T: Decodable>(for url: String, expected type: T.Type, completion: @escaping (Response) -> Void) {
+func getResponse<T: Decodable>(for url: String, expected type: T.Type, completion: @escaping (Response) -> Void) throws {
     let authenticationString = getAuthenticationString()
-    let myurl = URL(string: getServerURL() + url)!
+    let myurl = URL(string: try getServerURL() + url)!
     var request = URLRequest(url: myurl)
     request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
+    request.timeoutInterval = requestTimeout
     URLSession.shared.dataTask(with: request) { data, response, error in
         if let data = data {
             let parsed = try? JSONDecoder().decode(type, from: data)
@@ -38,15 +42,23 @@ func getResponse<T: Decodable>(for url: String, expected type: T.Type, completio
         } else {
             completion(.failure(error: error ?? ServerlyError.UnknownError))
         }
-    }
+    }.resume()
 }
 
 func getSummary(for kind: String, completion: @escaping (String) -> Void) {
     let authenticationString = getAuthenticationString()
     let myurl = summaryURLMap[kind]
+    var domain: String
+    do {
+        domain = try getServerURL()
+    } catch {
+        completion(ServerlyError.InvalidConfigurationError.localizedDescription)
+        return
+    }
     guard let myUrl = myurl else { return }
-    let url = URL(string: getServerURL() + myUrl)!
+    let url = URL(string: domain + myUrl)!
     var request = URLRequest(url: url)
+    request.timeoutInterval = requestTimeout
     request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
     URLSession.shared.dataTask(with: request) { data, response, error in
         if let data = data {
@@ -54,14 +66,16 @@ func getSummary(for kind: String, completion: @escaping (String) -> Void) {
         } else {
             completion("Error: \(error?.localizedDescription ?? "Unknown error")")
         }
-    }
+    }.resume()
 }
 
 enum ServerlyError: Error {
     case JSONDecodeError
     case NoResponseError
     case UnknownError
+    case InvalidConfigurationError
 }
+
 extension ServerlyError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -69,6 +83,8 @@ extension ServerlyError: LocalizedError {
             return NSLocalizedString("Error while decoding JSON.", comment: "JSONDecodeError")
         case .NoResponseError:
             return NSLocalizedString("No response.", comment: "NoResponseError")
+        case .InvalidConfigurationError:
+            return NSLocalizedString("Invalid configuration.", comment: "InvalidConfigurationError")
         case .UnknownError:
             return NSLocalizedString("Unkown error.", comment: "UnkownError")
         }
@@ -94,16 +110,3 @@ func readJson(data: Data) throws -> Dictionary<String, Dictionary<String, String
         throw ServerlyError.JSONDecodeError
     }
 }
-
-let HTTPMethodMap = [
-    "get": "GET",
-    "post": "POS",
-    "put": "PUT",
-    "delete": "DEL"
-]
-
-let summaryURLMap = [
-    "users": "/console/api/users.get",
-    "endpoints": "/console/api/endpoints",
-    "staistics": "/console/api/statistics"
-]

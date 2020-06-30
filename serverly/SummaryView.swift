@@ -14,39 +14,30 @@ struct SummaryView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                if let summary = summary {
                     Text(kind)
                         .font(.headline)
                         .padding(.leading)
-                        .foregroundColor(.black)
-                    Text(summary)
+                Button(action: {
+                    serverly.getSummary(for: kind) { summary in
+                        self.summary = summary
+                    }
+                }){Text(summary ?? "⃝").lineLimit(3)}
                         .padding(.top, 8)
                         .padding(.leading)
-                }else {
-                    HStack {
-                        Text(kind)
-                            .font(.headline)
-                            .padding(.leading)
-                            .foregroundColor(.black)
-                            .onAppear(perform: self.getSummary)
-                        ProgressView()
-                            .padding(.leading, 8)
-                    }
+            }
+            .foregroundColor(.black)
+            .onAppear {
+                getSummary(for: kind) { summary in
+                    self.summary = summary
                 }
             }
             Spacer()
-        }
-    }
-    func getSummary() {
-        summary = nil
-        serverly.getSummary(for: kind) { summary in
-            self.summary = summary
         }
     }
 }
 
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryView(kind: "users", summary: "Hello there!")
+        SummaryView(kind: "users")
     }
 }

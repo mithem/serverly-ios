@@ -30,7 +30,7 @@ class ServerDetailsViewController: UIViewController {
     
     func loadSummaryUsers() {
         let authenticationString = getAuthenticationString()
-        let myurl = URL(string: getServerURL() + "/console/api/summary.users")!
+        let myurl = URL(string: (try? getServerURL()) ?? "https://google.com" + "/console/api/summary.users")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
@@ -45,7 +45,7 @@ class ServerDetailsViewController: UIViewController {
     
     func loadSummaryEndpoints() {
         let authenticationString = getAuthenticationString()
-        let myurl = URL(string: getServerURL() + "/console/api/summary.endpoints")!
+        let myurl = URL(string: (try? getServerURL()) ?? "https//google.com" + "/console/api/summary.endpoints")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         
@@ -60,7 +60,7 @@ class ServerDetailsViewController: UIViewController {
     
     func loadSummaryStatistics() {
         let authenticationString = getAuthenticationString()
-        let myurl = URL(string: getServerURL() + "/console/api/summary.statistics")!
+        let myurl = URL(string: (try? getServerURL()) ?? "https://google.com" + "/console/api/summary.statistics")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         

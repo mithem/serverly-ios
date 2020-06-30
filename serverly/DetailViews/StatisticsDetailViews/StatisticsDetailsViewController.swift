@@ -35,7 +35,7 @@ class StatisticsDetailsViewController: UIViewController {
     
     func loadStats() {
         let authenticationString = getAuthenticationString()
-        let myurl = URL(string: getServerURL() + "/console/api/statistics?list=true")!
+        let myurl = URL(string: (try? getServerURL()) ?? "https://google.com" + "/console/api/statistics?list=true")!
         var request = URLRequest(url: myurl)
         request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
         

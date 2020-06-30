@@ -18,8 +18,6 @@
 		4956A188249BCE8500D8349C /* EndpointStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956A187249BCE8500D8349C /* EndpointStatistic.swift */; };
 		49811674249357D000313418 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49811673249357D000313418 /* NotificationSettingsViewController.swift */; };
 		49811676249360AC00313418 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49811675249360AC00313418 /* Notifications.swift */; };
-		49887DA124923E9E007CCE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA024923E9E007CCE87 /* AppDelegate.swift */; };
-		49887DA324923E9E007CCE87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA224923E9E007CCE87 /* SceneDelegate.swift */; };
 		49887DA524923E9E007CCE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA424923E9E007CCE87 /* ViewController.swift */; };
 		49887DA824923E9E007CCE87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49887DA624923E9E007CCE87 /* Main.storyboard */; };
 		49887DAA24923E9E007CCE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49887DA924923E9E007CCE87 /* Assets.xcassets */; };
@@ -28,12 +26,19 @@
 		49887DB724923EC8007CCE87 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DB624923EC8007CCE87 /* SettingsViewController.swift */; };
 		499FCCA124991B6400B4B33E /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */; };
 		499FCCA324992B5D00B4B33E /* UserDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA224992B5D00B4B33E /* UserDetailsTableViewCell.swift */; };
-		499FCCA72499335D00B4B33E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA62499335D00B4B33E /* User.swift */; };
 		49B85C7A249F6C8C00E4F7A2 /* serverlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B85C79249F6C8C00E4F7A2 /* serverlyTests.swift */; };
 		49B85C82249F6CB000E4F7A2 /* CustomizationSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B85C81249F6CB000E4F7A2 /* CustomizationSettingsTests.swift */; };
+		49C34A9F24AB83710087CE92 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C34A9E24AB83700087CE92 /* NotificationSettings.swift */; };
+		49C34AA124AB84200087CE92 /* CustomizationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C34AA024AB84200087CE92 /* CustomizationSettings.swift */; };
 		49F3030524AB380700476406 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030424AB380700476406 /* OverviewView.swift */; };
 		49F3030724AB388A00476406 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030624AB388A00476406 /* SummaryView.swift */; };
 		49F3030A24AB3B9900476406 /* shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030924AB3B9900476406 /* shared.swift */; };
+		49F3030C24AB4A8200476406 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030B24AB4A8200476406 /* constants.swift */; };
+		49F3030E24AB51DC00476406 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030D24AB51DC00476406 /* SettingsView.swift */; };
+		49F3031024AB53E000476406 /* ServerSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030F24AB53E000476406 /* ServerSettingsView.swift */; };
+		49F3031224AB6D3200476406 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3031124AB6D3200476406 /* UserDetailsView.swift */; };
+		49F3031424AB6D6600476406 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3031324AB6D6600476406 /* models.swift */; };
+		49F3031624AB6DC700476406 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3031524AB6DC700476406 /* UserRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +77,6 @@
 		49811673249357D000313418 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		49811675249360AC00313418 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		49887D9D24923E9E007CCE87 /* serverly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serverly.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		49887DA024923E9E007CCE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49887DA224923E9E007CCE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		49887DA424923E9E007CCE87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49887DA724923E9E007CCE87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49887DA924923E9E007CCE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,15 +87,22 @@
 		499FCC9F2499168500B4B33E /* serverly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = serverly.entitlements; sourceTree = "<group>"; };
 		499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		499FCCA224992B5D00B4B33E /* UserDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCell.swift; sourceTree = "<group>"; };
-		499FCCA62499335D00B4B33E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		49B85C77249F6C8C00E4F7A2 /* serverlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = serverlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B85C79249F6C8C00E4F7A2 /* serverlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverlyTests.swift; sourceTree = "<group>"; };
 		49B85C7B249F6C8C00E4F7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B85C81249F6CB000E4F7A2 /* CustomizationSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationSettingsTests.swift; sourceTree = "<group>"; };
+		49C34A9E24AB83700087CE92 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		49C34AA024AB84200087CE92 /* CustomizationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationSettings.swift; sourceTree = "<group>"; };
 		49E794242492AF4500FEBBD2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		49F3030424AB380700476406 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		49F3030624AB388A00476406 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		49F3030924AB3B9900476406 /* shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shared.swift; sourceTree = "<group>"; };
+		49F3030B24AB4A8200476406 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		49F3030D24AB51DC00476406 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		49F3030F24AB53E000476406 /* ServerSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSettingsView.swift; sourceTree = "<group>"; };
+		49F3031124AB6D3200476406 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		49F3031324AB6D6600476406 /* models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
+		49F3031524AB6DC700476406 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +147,6 @@
 			children = (
 				494563F2249623A800DB4364 /* UserDetailsViewController.swift */,
 				499FCCA224992B5D00B4B33E /* UserDetailsTableViewCell.swift */,
-				499FCCA62499335D00B4B33E /* User.swift */,
 			);
 			path = UserDetailViews;
 			sourceTree = "<group>";
@@ -177,8 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				499FCC9F2499168500B4B33E /* serverly.entitlements */,
-				49887DA024923E9E007CCE87 /* AppDelegate.swift */,
-				49887DA224923E9E007CCE87 /* SceneDelegate.swift */,
 				49811675249360AC00313418 /* Notifications.swift */,
 				49887DA424923E9E007CCE87 /* ViewController.swift */,
 				49887DA624923E9E007CCE87 /* Main.storyboard */,
@@ -192,6 +199,12 @@
 				49887DAB24923E9E007CCE87 /* LaunchScreen.storyboard */,
 				49887DAE24923E9E007CCE87 /* Info.plist */,
 				49F3030424AB380700476406 /* OverviewView.swift */,
+				49F3031124AB6D3200476406 /* UserDetailsView.swift */,
+				49F3031524AB6DC700476406 /* UserRowView.swift */,
+				49F3030D24AB51DC00476406 /* SettingsView.swift */,
+				49C34AA024AB84200087CE92 /* CustomizationSettings.swift */,
+				49C34A9E24AB83700087CE92 /* NotificationSettings.swift */,
+				49F3030F24AB53E000476406 /* ServerSettingsView.swift */,
 				49F3030624AB388A00476406 /* SummaryView.swift */,
 			);
 			path = serverly;
@@ -228,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				49F3030924AB3B9900476406 /* shared.swift */,
+				49F3031324AB6D6600476406 /* models.swift */,
+				49F3030B24AB4A8200476406 /* constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -335,27 +350,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F3030E24AB51DC00476406 /* SettingsView.swift in Sources */,
 				4956A186249BCE6A00D8349C /* StatisticsTableViewCell.swift in Sources */,
 				494563FF249649DF00DB4364 /* UIViewExt.swift in Sources */,
 				49887DB524923EBF007CCE87 /* ServerDetailsViewController.swift in Sources */,
+				49F3030C24AB4A8200476406 /* constants.swift in Sources */,
 				49F3030524AB380700476406 /* OverviewView.swift in Sources */,
 				49811676249360AC00313418 /* Notifications.swift in Sources */,
 				494563F52496269400DB4364 /* EndpointDetailsViewController.swift in Sources */,
-				499FCCA72499335D00B4B33E /* User.swift in Sources */,
 				49887DA524923E9E007CCE87 /* ViewController.swift in Sources */,
 				49F3030A24AB3B9900476406 /* shared.swift in Sources */,
 				494563F7249626C800DB4364 /* StatisticsDetailsViewController.swift in Sources */,
+				49F3031224AB6D3200476406 /* UserDetailsView.swift in Sources */,
 				49811674249357D000313418 /* NotificationSettingsViewController.swift in Sources */,
-				49887DA124923E9E007CCE87 /* AppDelegate.swift in Sources */,
 				49887DB724923EC8007CCE87 /* SettingsViewController.swift in Sources */,
 				4956A188249BCE8500D8349C /* EndpointStatistic.swift in Sources */,
-				49887DA324923E9E007CCE87 /* SceneDelegate.swift in Sources */,
 				494563F3249623A800DB4364 /* UserDetailsViewController.swift in Sources */,
 				499FCCA124991B6400B4B33E /* UIViewControllerExt.swift in Sources */,
 				49F3030724AB388A00476406 /* SummaryView.swift in Sources */,
+				49F3031424AB6D6600476406 /* models.swift in Sources */,
+				49F3031024AB53E000476406 /* ServerSettingsView.swift in Sources */,
 				499FCCA324992B5D00B4B33E /* UserDetailsTableViewCell.swift in Sources */,
 				4945640324964C4200DB4364 /* EndpointDetailsTableViewCell.swift in Sources */,
+				49F3031624AB6DC700476406 /* UserRowView.swift in Sources */,
 				4953511B249B7AB6003DB581 /* CustomizationSettingsViewController.swift in Sources */,
+				49C34AA124AB84200087CE92 /* CustomizationSettings.swift in Sources */,
+				49C34A9F24AB83710087CE92 /* NotificationSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
