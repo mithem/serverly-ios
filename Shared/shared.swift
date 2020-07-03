@@ -25,11 +25,26 @@ func getServerURL() throws -> String {
     return value
 }
 
-func getResponse<T: Decodable>(for url: String, expected type: T.Type, completion: @escaping (Response) -> Void) throws {
-    let authenticationString = getAuthenticationString()
-    let myurl = URL(string: try getServerURL() + url)!
+func getRequest(for url: String) throws -> URLRequest {
+    let domain = try getServerURL()
+    guard let myurl = URL(string: domain + url) else {
+        throw ServerlyError.InvalidConfigurationError
+    }
     var request = URLRequest(url: myurl)
-    request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
+    request.setValue("Basic " + (getAuthenticationString().data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
+    return request
+}
+
+/// request something on the web
+/// - Parameters:
+///   - url: url
+///   - type: expected answer type
+///   - method: HTTP-Method
+///   - completion: completion handler (takes `Response`)
+/// - Throws: `ServerlyError.InvalidConfigurationError`
+func getParsedJSONResponse<T: Decodable>(for url: String, expected type: T.Type, with method: String = "GET", completion: @escaping (Response) -> Void) throws {
+    var request = try getRequest(for: url)
+    request.httpMethod = method
     request.timeoutInterval = requestTimeout
     URLSession.shared.dataTask(with: request) { data, response, error in
         if let data = data {
@@ -46,20 +61,18 @@ func getResponse<T: Decodable>(for url: String, expected type: T.Type, completio
 }
 
 func getSummary(for kind: String, completion: @escaping (String) -> Void) {
-    let authenticationString = getAuthenticationString()
-    let myurl = summaryURLMap[kind]
-    var domain: String
+    guard let url = summaryURLMap[kind] else {
+        completion(ServerlyError.NotImplementedError.localizedDescription)
+        return
+    }
+    var request: URLRequest
     do {
-        domain = try getServerURL()
+        request = try getRequest(for: url)
     } catch {
         completion(ServerlyError.InvalidConfigurationError.localizedDescription)
         return
     }
-    guard let myUrl = myurl else { return }
-    let url = URL(string: domain + myUrl)!
-    var request = URLRequest(url: url)
     request.timeoutInterval = requestTimeout
-    request.setValue("Basic " + (authenticationString.data(using: String.Encoding.utf8)?.base64EncodedString())!, forHTTPHeaderField: "authentication")
     URLSession.shared.dataTask(with: request) { data, response, error in
         if let data = data {
             completion(String(data: data, encoding: .utf8) ?? "No response.")
@@ -69,44 +82,66 @@ func getSummary(for kind: String, completion: @escaping (String) -> Void) {
     }.resume()
 }
 
-enum ServerlyError: Error {
-    case JSONDecodeError
-    case NoResponseError
-    case UnknownError
-    case InvalidConfigurationError
-}
-
-extension ServerlyError: LocalizedError {
-    public var errorDescription: String? {
-        switch self {
-        case .JSONDecodeError:
-            return NSLocalizedString("Error while decoding JSON.", comment: "JSONDecodeError")
-        case .NoResponseError:
-            return NSLocalizedString("No response.", comment: "NoResponseError")
-        case .InvalidConfigurationError:
-            return NSLocalizedString("Invalid configuration.", comment: "InvalidConfigurationError")
-        case .UnknownError:
-            return NSLocalizedString("Unkown error.", comment: "UnkownError")
-        }
+func deleteUsers(withIds: [Int], completion: @escaping (Response) -> Void) {
+    var request: URLRequest
+    do {
+        request = try getRequest(for: "/console/api/users/delete")
+    } catch {
+        completion(.failure(error: ServerlyError.InvalidConfigurationError))
+        return
     }
+    request.httpMethod = "DELETE"
+    guard let data = try? JSONEncoder().encode(withIds) else {
+        completion(.failure(error: ServerlyError.JSONEncodeError))
+        return
+    }
+    request.httpBody = data
+    URLSession.shared.dataTask(with: request) { data, response, error in
+        if let data = data {
+            completion(.success(data: String(data: data, encoding: .utf8)))
+        } else {
+            completion(.failure(error: ServerlyError.NoResponseError))
+        }
+    }.resume()
 }
 
-enum Response {
-    case success(data: Decodable)
-    case failure(error: Error)
+func deleteEndpoints(endpoints: [Endpoint], completion: @escaping (Response) -> Void) {
+    var request: URLRequest
+    do {
+        request = try getRequest(for: "/console/api/endpoint.del")
+    } catch {
+        completion(.failure(error: ServerlyError.InvalidConfigurationError))
+        return
+    }
+    request.httpMethod = "DELETE"
+    var endpointsToDelete = [[String]]()
+    for endpoint in endpoints {
+        endpointsToDelete.append([endpoint.method, endpoint.path])
+    }
+    guard let data = try? JSONEncoder().encode(endpointsToDelete) else {
+        completion(.failure(error: ServerlyError.JSONEncodeError))
+        return
+    }
+    request.httpBody = data
+    URLSession.shared.dataTask(with: request) { data, response, error in
+        if let data = data {
+            completion(.success(data: String(data: data, encoding: .utf8)))
+        } else {
+            completion(.failure(error: ServerlyError.NoResponseError))
+        }
+    }.resume()
 }
 
 func readJson(data: Data) throws -> Dictionary<String, Dictionary<String, String>> {
     // https://stackoverflow.com/questions/40438784/read-json-file-with-swift-3/40438849#40438849
     do {
-            let json = try JSONSerialization.jsonObject(with: data, options: [])
-            if let object = json as? [String: Dictionary<String, String>] {
-                return object
-            } else { // only expect dicts from the server
-                throw ServerlyError.JSONDecodeError
-            }
+        let json = try JSONSerialization.jsonObject(with: data, options: [])
+        if let object = json as? [String: Dictionary<String, String>] {
+            return object
+        } else { // only expect dicts from the server
+            throw ServerlyError.JSONDecodeError
+        }
     } catch {
-        print(error.localizedDescription)
         throw ServerlyError.JSONDecodeError
     }
 }

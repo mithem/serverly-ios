@@ -18,25 +18,22 @@ struct Serverly: App {
 }
 
 struct OverviewView: View {
-    @State var summaryUsers: String? = nil
-    let summaryUsersView = SummaryView(kind: "users")
-    let summaryEndpointsView = SummaryView(kind: "endpoints")
-    let summaryStatisticsView = SummaryView(kind: "statistics")
+    
+    @State private var summaryUsers: String? = nil
+    @GestureState private var isDetectingLongPress = false
+    @State private var completedLongPress =  false
+    
+    @State private var showUsersView = false
+    
     var body: some View {
         NavigationView {
             Group {
                 VStack {
-                    NavigationLink(destination: UserDetailsView()) {
-                        summaryUsersView
-                    }
-                    .padding([.top, .bottom])
-                    NavigationLink(destination: Text("hello world 2")) {
-                        summaryEndpointsView
-                    }
+                    SummaryView<UserDetailsView>(kind: "users", navigateTo: UserDetailsView())
+                        .padding([.top, .bottom])
+                    SummaryView<EndpointDetailsView>(kind: "endpoints", navigateTo: EndpointDetailsView())
                     .padding(.bottom)
-                    NavigationLink(destination: Text("hello world 3")) {
-                        summaryStatisticsView
-                    }
+                    SummaryView<StatisticsDetailsView>(kind: "statistics", navigateTo: StatisticsDetailsView())
                     Spacer()
                 }
             }

@@ -15,10 +15,10 @@ struct ServerSettingsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("server URL")
+            Text("server url")
                 .bold()
                 .padding(.leading)
-            TextField("URL", text: $serverURL)
+            TextField("url", text: $serverURL)
                 .padding([.leading, .trailing])
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Text("This URL is used to receive information about the server. Make sure that you have registered all console.summary endpoints of the serverly standard API.")

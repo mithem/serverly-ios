@@ -13,7 +13,6 @@ struct SettingsView: View {
         List {
             NavigationLink("authentication", destination: ServerSettingsView())
             NavigationLink("notifications", destination: NotificationSettings())
-            NavigationLink("customization", destination: CustomizationSettings())
         }
         .navigationTitle("settings")
     }
