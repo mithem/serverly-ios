@@ -35,6 +35,9 @@ enum ServerlyError: Error {
     case UnknownError
     case InvalidConfigurationError
     case NotImplementedError
+    enum InvalidUserInputError: Error {
+        case InvalidEndpointPathError
+    }
 }
 
 extension ServerlyError: LocalizedError {
@@ -52,6 +55,15 @@ extension ServerlyError: LocalizedError {
             return NSLocalizedString("Unkown error.", comment: "UnkownError")
         case .NotImplementedError:
             return NSLocalizedString("Something is not implemented by this app.", comment: "NotImplementedError")
+        }
+    }
+}
+
+extension ServerlyError.InvalidUserInputError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .InvalidEndpointPathError:
+            return NSLocalizedString("Invalid path for endpoint.", comment: "InvalidEndpointPathError")
         }
     }
 }

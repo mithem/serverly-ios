@@ -171,3 +171,12 @@ func requestRootUserPermissions(completion: @escaping (RootUserPermissionRequest
         completion(.failure(error: error))
     }
 }
+
+func checkEndpointPath(_ path: String) -> Bool {
+    let p = #"^\^?\/[a-zA-Z0-9-\.\,_#\+!§\$%&\/\(\)\*=?`]*\$?$"#
+    guard let pattern = try? NSRegularExpression(pattern: p) else { fatalError("Invalid pattern.") }
+    if pattern.firstMatch(in: path, range: NSRange(location: 0, length: path.count)) == nil {
+        return false
+    }
+    return true
+}

@@ -10,23 +10,39 @@ import SwiftUI
 
 struct EndpointDetailsView: View {
     
+    @Environment(\.colorScheme) private var colorScheme
+    
     @State var endpoints =  [Endpoint]()
-    @State private var showNetworkError = false
+    @State private var showingNetworkError = false
     @State private var networkError: String? = nil
+    @State private var showingAddEndpointView = false
     
     var body: some View {
         List {
+            Button(action: {
+                showingAddEndpointView = true
+            }) {
+                Text("Add")
+                    .foregroundColor(.blue)
+            }
             ForEach(endpoints, id: \.path) { endpoint in
                 EndpointRowView(endpoint: endpoint)
             }
             .onDelete(perform: deleteEndpoints)
         }
+        .animation(.easeInOut)
         .onAppear(perform: loadEndpoints)
-        .actionSheet(isPresented: $showNetworkError) {
+        .actionSheet(isPresented: $showingNetworkError) {
             ActionSheet(title: Text("Networking error."), message: Text(networkError ?? "Unknown error."), buttons: [.default(Text("OK"))])
         }
+        .sheet(isPresented: $showingAddEndpointView) {
+            AddEndpointView()
+                .onDisappear {
+                    loadEndpoints()
+                }
+        }
         .navigationTitle("endpoints")
-        .navigationBarItems(trailing: Button(action: loadEndpoints, label: {Image(systemName: "arrow.clockwise").foregroundColor(.black).padding()})
+        .navigationBarItems(trailing: Button(action: loadEndpoints, label: {Image(systemName: "arrow.clockwise").foregroundColor(colorScheme == .dark ? .white : .black).padding()})
         )
     }
     
@@ -41,7 +57,7 @@ struct EndpointDetailsView: View {
                 endpoints.remove(atOffsets: offsets)
             case .failure(error: let error):
                 networkError = error.localizedDescription
-                showNetworkError = true
+                showingNetworkError = true
             }
         }
     }
@@ -58,12 +74,12 @@ struct EndpointDetailsView: View {
                     endpoints = myEndpoints
                 case .failure(error: let error):
                     networkError = error.localizedDescription
-                    showNetworkError = true
+                    showingNetworkError = true
                 }
             }
         } catch let error {
             networkError = error.localizedDescription
-            showNetworkError = true
+            showingNetworkError = true
         }
     }
 }

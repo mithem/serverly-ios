@@ -16,6 +16,8 @@ let HTTPMethodMap = [
     "delete": "DEL"
 ]
 
+let supportedMethods = ["GET", "POST", "PUT", "DELETE"]
+
 let summaryURLMap = [
     "users": "/console/api/summary.users",
     "endpoints": "/console/api/summary.endpoints",
