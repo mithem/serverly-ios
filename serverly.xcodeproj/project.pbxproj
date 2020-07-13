@@ -17,7 +17,6 @@
 		499A398724ADF09200F21E04 /* EndpointRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A398624ADF09200F21E04 /* EndpointRowView.swift */; };
 		499FCCA124991B6400B4B33E /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */; };
 		49C220BC24BB97AF007BAC81 /* CreateRootUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C220BB24BB97AF007BAC81 /* CreateRootUserView.swift */; };
-		49C220BE24BC696D007BAC81 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 49C220BD24BC696D007BAC81 /* .gitignore */; };
 		49C34A9F24AB83710087CE92 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C34A9E24AB83700087CE92 /* NotificationSettings.swift */; };
 		49F3030524AB380700476406 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030424AB380700476406 /* OverviewView.swift */; };
 		49F3030724AB388A00476406 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030624AB388A00476406 /* SummaryView.swift */; };
@@ -58,7 +57,6 @@
 		499FCC9F2499168500B4B33E /* serverly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = serverly.entitlements; sourceTree = "<group>"; };
 		499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		49C220BB24BB97AF007BAC81 /* CreateRootUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRootUserView.swift; sourceTree = "<group>"; };
-		49C220BD24BC696D007BAC81 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		49C34A9E24AB83700087CE92 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		49E794242492AF4500FEBBD2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		49F3030424AB380700476406 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		49887D9424923E9E007CCE87 = {
 			isa = PBXGroup;
 			children = (
-				49C220BD24BC696D007BAC81 /* .gitignore */,
 				49F3030824AB3B8800476406 /* Shared */,
 				499FCC9E2499166D00B4B33E /* Extensions */,
 				49887D9F24923E9E007CCE87 /* serverly */,
@@ -264,7 +261,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49887DAD24923E9E007CCE87 /* LaunchScreen.storyboard in Resources */,
-				49C220BE24BC696D007BAC81 /* .gitignore in Resources */,
 				49887DAA24923E9E007CCE87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
