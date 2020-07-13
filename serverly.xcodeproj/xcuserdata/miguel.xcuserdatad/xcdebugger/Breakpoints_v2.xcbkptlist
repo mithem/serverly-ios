@@ -210,14 +210,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A6129B33-62CC-4D76-9273-9C0211E0E24D - 1fd5113107127481"
+                  uuid = "A6129B33-62CC-4D76-9273-9C0211E0E24D - e945d4c216622d00"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "serverly.StatisticsDetailsView.refresh() -&gt; ()"
                   moduleName = "serverly"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
+                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly-ios/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -225,14 +225,14 @@
                   offsetFromSymbolStart = "41">
                </Location>
                <Location
-                  uuid = "A6129B33-62CC-4D76-9273-9C0211E0E24D - 1d10dfbcd4c5468c"
+                  uuid = "A6129B33-62CC-4D76-9273-9C0211E0E24D - eb801a4fc5b51f0b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (serverly.Response) -&gt; () in serverly.StatisticsDetailsView.refresh() -&gt; ()"
                   moduleName = "serverly"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
+                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly-ios/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
@@ -274,14 +274,14 @@
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "1C8E04FF-2067-444A-B771-DC55F9369B46 - 193e9cc90d61cafe"
+                  uuid = "1C8E04FF-2067-444A-B771-DC55F9369B46 - efae593a1c116c61"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "serverly.StatisticsDetailsView.body.getter : some"
                   moduleName = "serverly"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
+                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly-ios/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -289,14 +289,14 @@
                   offsetFromSymbolStart = "823">
                </Location>
                <Location
-                  uuid = "1C8E04FF-2067-444A-B771-DC55F9369B46 - aee8fa7fdff68137"
+                  uuid = "1C8E04FF-2067-444A-B771-DC55F9369B46 - 58783f8cce8627b6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 () -&gt; SwiftUI.Alert in serverly.StatisticsDetailsView.body.getter : some"
                   moduleName = "serverly"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
+                  urlString = "file:///Users/miguel/repos/Apple-Projects/serverly-ios/serverly/DetailViews/StatisticsDetailViews/StatisticsDetailsView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -304,6 +304,47 @@
                   offsetFromSymbolStart = "91">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3B211C2-E3F7-4FAE-92B7-F935BF5EC9DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "serverly/OverviewViews/SummaryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "refresh()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2114B05A-1D5B-49F1-94A7-FF9E38200F27"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "serverly/OverviewViews/CreateRootUserView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
+         <BreakpointContent
+            uuid = "E96AE81B-4F9C-42CC-8CE5-90EEDDCBE5FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -16,6 +16,7 @@
 		499A398524ADEF7100F21E04 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A398424ADEF7100F21E04 /* StatisticsDetailsView.swift */; };
 		499A398724ADF09200F21E04 /* EndpointRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A398624ADF09200F21E04 /* EndpointRowView.swift */; };
 		499FCCA124991B6400B4B33E /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */; };
+		49C220BC24BB97AF007BAC81 /* CreateRootUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C220BB24BB97AF007BAC81 /* CreateRootUserView.swift */; };
 		49C34A9F24AB83710087CE92 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C34A9E24AB83700087CE92 /* NotificationSettings.swift */; };
 		49F3030524AB380700476406 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030424AB380700476406 /* OverviewView.swift */; };
 		49F3030724AB388A00476406 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F3030624AB388A00476406 /* SummaryView.swift */; };
@@ -55,6 +56,7 @@
 		499A398624ADF09200F21E04 /* EndpointRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRowView.swift; sourceTree = "<group>"; };
 		499FCC9F2499168500B4B33E /* serverly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = serverly.entitlements; sourceTree = "<group>"; };
 		499FCCA024991B6400B4B33E /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		49C220BB24BB97AF007BAC81 /* CreateRootUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRootUserView.swift; sourceTree = "<group>"; };
 		49C34A9E24AB83700087CE92 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		49E794242492AF4500FEBBD2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		49F3030424AB380700476406 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				49F3030424AB380700476406 /* OverviewView.swift */,
 				49F3030624AB388A00476406 /* SummaryView.swift */,
+				49C220BB24BB97AF007BAC81 /* CreateRootUserView.swift */,
 			);
 			path = OverviewViews;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				49F9853B24AF270C00AAE325 /* StatisticsDetailRowView.swift in Sources */,
 				49F3030524AB380700476406 /* OverviewView.swift in Sources */,
 				49811676249360AC00313418 /* notifications.swift in Sources */,
+				49C220BC24BB97AF007BAC81 /* CreateRootUserView.swift in Sources */,
 				49887DA524923E9E007CCE87 /* ViewController.swift in Sources */,
 				49F3030A24AB3B9900476406 /* shared.swift in Sources */,
 				49F3031224AB6D3200476406 /* UserDetailsView.swift in Sources */,

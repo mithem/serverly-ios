@@ -145,3 +145,30 @@ func readJson(data: Data) throws -> Dictionary<String, Dictionary<String, String
         throw ServerlyError.JSONDecodeError
     }
 }
+
+func requestRootUserPermissions(completion: @escaping (RootUserPermissionRequestResponse) -> Void) {
+    print("Trying to get root permissions...")
+    do {
+        try getParsedJSONResponse(for: "/console/api/root/token", expected: Dictionary<String, String>.self) { response in
+            switch response {
+            case .success(data: let data):
+                print("Got data from server!")
+                let dict = data as! Dictionary<String, String>
+                print(dict)
+                if dict["code"] == "200" {
+                    print("Got root permissions!")
+                    UserDefaults().set(dict["token"]!, forKey: "create-root-user-token")
+                    completion(.success)
+                } else {
+                    print("Denied root permissions!")
+                    completion(.denied)
+                }
+            case .failure(error: let error):
+                print("Failure getting root permissions: \(error.localizedDescription)")
+                completion(.failure(error: error))
+            }
+        }
+    } catch {
+        completion(.failure(error: error))
+    }
+}

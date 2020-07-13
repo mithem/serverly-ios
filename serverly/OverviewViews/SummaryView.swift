@@ -13,6 +13,8 @@ struct SummaryView<Content: View>: View {
     @State var summary: String? = nil
     let navigateTo: Content
     @State private var navigateToChild = false
+    @State private var error: String? = nil
+    @State private var showingCreateUserScreen = false
     
     init(kind: String, @ViewBuilder navigateTo: () -> Content) {
         self.navigateTo = navigateTo()
@@ -45,10 +47,14 @@ struct SummaryView<Content: View>: View {
                     ProgressView()
                         .padding(.horizontal)
                 }
+                if let error = error {
+                    Text("Error getting root permission: \(error)")
+                }
             }
             .foregroundColor(.black)
             .onAppear(perform: refresh)
             Spacer()
+            NavigationLink(destination: CreateRootUserView(), isActive: $showingCreateUserScreen) {}
         }
     }
     
@@ -56,6 +62,19 @@ struct SummaryView<Content: View>: View {
         summary = nil
         getSummary(for: kind) { summary in
             self.summary = summary
+            let last: Substring = summary.prefix(5)
+            if kind == "users" && String(last) == "User " { // just initiate once and check if user is not found
+                requestRootUserPermissions { response in
+                    switch response {
+                    case .success:
+                        showingCreateUserScreen = true
+                    case .denied:
+                        break
+                    case .failure(error: let error):
+                        self.summary = error.localizedDescription
+                    }
+                }
+            }
         }
     }
 }

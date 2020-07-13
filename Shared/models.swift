@@ -66,3 +66,9 @@ enum NotificationSchedulingRequest {
     case badStatus(status: UNAuthorizationStatus)
     case error(error: Error)
 }
+
+enum RootUserPermissionRequestResponse {
+    case success
+    case denied
+    case failure(error: Error)
+}
