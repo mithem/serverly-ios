@@ -15,14 +15,13 @@ func getAuthenticationString() -> String {
 
 func getServerURL() throws -> String {
     let userDefaults = UserDefaults()
-    var value = userDefaults.string(forKey: "serverURL") ?? "https://google.com/search?q="
-    if value.hasSuffix("/") {
-        value =  String(value[..<value.index(before: value.endIndex)])
+    let value = userDefaults.string(forKey: "serverURL")
+    guard !(value?.isEmpty ?? true) else { throw ServerlyError.InvalidConfigurationError }
+    guard var val = value else { throw ServerlyError.InvalidConfigurationError }
+    if val.hasSuffix("/") {
+        val =  String(val[..<val.index(before: val.endIndex)])
     }
-    if value.isEmpty {
-        throw ServerlyError.InvalidConfigurationError
-    }
-    return value
+    return val
 }
 
 func getRequest(for url: String) throws -> URLRequest {

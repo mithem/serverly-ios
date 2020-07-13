@@ -19,6 +19,8 @@ struct Serverly: App {
 
 struct OverviewView: View {
     
+    @Environment(\.colorScheme) private var colorScheme
+    
     @State private var summaryUsers: String? = nil
     @GestureState private var isDetectingLongPress = false
     @State private var completedLongPress =  false
@@ -38,7 +40,7 @@ struct OverviewView: View {
                 }
             }
             .navigationTitle("serverly")
-            .navigationBarItems(trailing: NavigationLink("settings", destination: SettingsView())).foregroundColor(.black).font(.system(size: 16, weight: .medium, design: .default))
+            .navigationBarItems(trailing: NavigationLink("settings", destination: SettingsView())).foregroundColor(colorScheme == .dark ? .white : .black).font(.system(size: 16, weight: .medium, design: .default))
         }
     }
 }

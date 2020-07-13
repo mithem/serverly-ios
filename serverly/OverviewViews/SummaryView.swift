@@ -9,9 +9,13 @@
 import SwiftUI
 
 struct SummaryView<Content: View>: View {
+    
+    @Environment(\.colorScheme) private var colorScheme
+    
     let kind: String
-    @State var summary: String? = nil
     let navigateTo: Content
+    
+    @State var summary: String? = nil
     @State private var navigateToChild = false
     @State private var error: String? = nil
     @State private var showingCreateUserScreen = false
@@ -51,7 +55,7 @@ struct SummaryView<Content: View>: View {
                     Text("Error getting root permission: \(error)")
                 }
             }
-            .foregroundColor(.black)
+            .foregroundColor(colorScheme == .dark ? .white : .black)
             .onAppear(perform: refresh)
             Spacer()
             NavigationLink(destination: CreateRootUserView(), isActive: $showingCreateUserScreen) {}

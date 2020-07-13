@@ -22,11 +22,11 @@ struct EndpointDetailsView: View {
             .onDelete(perform: deleteEndpoints)
         }
         .onAppear(perform: loadEndpoints)
-        .alert(isPresented: $showNetworkError) {
-            Alert(title: Text("Networking error."), message: Text(networkError ?? "Unknown error."), dismissButton: .default(Text("OK")))
+        .actionSheet(isPresented: $showNetworkError) {
+            ActionSheet(title: Text("Networking error."), message: Text(networkError ?? "Unknown error."), buttons: [.default(Text("OK"))])
         }
         .navigationTitle("endpoints")
-        .navigationBarItems(trailing: Button(action: loadEndpoints, label: {Image(systemName: "arrow.clockwise").foregroundColor(.black)})
+        .navigationBarItems(trailing: Button(action: loadEndpoints, label: {Image(systemName: "arrow.clockwise").foregroundColor(.black).padding()})
         )
     }
     

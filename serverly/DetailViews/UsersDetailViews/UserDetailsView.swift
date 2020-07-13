@@ -34,7 +34,7 @@ struct UserDetailsView: View {
             ActionSheet(title: Text("Network error"), message: Text(self.networkError ?? "unkown error"), buttons: [.default(Text("OK"))])
         }
         .navigationTitle("users")
-        .navigationBarItems(trailing: Button(action: refresh, label: {Image(systemName: "arrow.clockwise").foregroundColor(.black)}))
+        .navigationBarItems(trailing: Button(action: refresh, label: {Image(systemName: "arrow.clockwise").foregroundColor(.black).padding()}))
     }
     
     func refresh() {

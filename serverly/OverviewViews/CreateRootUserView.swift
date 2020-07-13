@@ -56,7 +56,7 @@ struct CreateRootUserView: View {
                     showingActionSheet = true
                 }
             }
-            .navigationTitle("Change root's password")
+            .navigationTitle("root user's setup")
         }
         .actionSheet(isPresented: $showingPasswordEmptyWarning) {
             ActionSheet(title: Text("Not all required fields are full"), message: Text("Please make sure to enter your desired password."), buttons: [.default(Text("OK"))])
