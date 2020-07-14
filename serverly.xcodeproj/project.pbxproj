@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4927826424BD9DA500415EC8 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927826324BD9DA500415EC8 /* AddUserView.swift */; };
 		494563FF249649DF00DB4364 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494563FE249649DF00DB4364 /* UIViewExt.swift */; };
 		49811676249360AC00313418 /* notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49811675249360AC00313418 /* notifications.swift */; };
 		49887DA524923E9E007CCE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49887DA424923E9E007CCE87 /* ViewController.swift */; };
 		49887DAA24923E9E007CCE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49887DA924923E9E007CCE87 /* Assets.xcassets */; };
 		49887DAD24923E9E007CCE87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49887DAB24923E9E007CCE87 /* LaunchScreen.storyboard */; };
 		4995CDB824BCBDD900CDD5D9 /* checkEndpointPathTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995CDB724BCBDD900CDD5D9 /* checkEndpointPathTest.swift */; };
+		4995CDBA24BCC82400CDD5D9 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4995CDB924BCC82400CDD5D9 /* RefreshButton.swift */; };
 		499A398324ADEF5300F21E04 /* EndpointDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A398224ADEF5300F21E04 /* EndpointDetailsView.swift */; };
 		499A398524ADEF7100F21E04 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A398424ADEF7100F21E04 /* StatisticsDetailsView.swift */; };
 		499A398724ADF09200F21E04 /* EndpointRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A398624ADF09200F21E04 /* EndpointRowView.swift */; };
@@ -56,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4927826324BD9DA500415EC8 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
 		494563FE249649DF00DB4364 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		49811675249360AC00313418 /* notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifications.swift; sourceTree = "<group>"; };
 		49887D9D24923E9E007CCE87 /* serverly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serverly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +69,7 @@
 		4995CDAD24BCBD9D00CDD5D9 /* serverlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = serverlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4995CDB124BCBD9D00CDD5D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4995CDB724BCBDD900CDD5D9 /* checkEndpointPathTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkEndpointPathTest.swift; sourceTree = "<group>"; };
+		4995CDB924BCC82400CDD5D9 /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		499A398224ADEF5300F21E04 /* EndpointDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointDetailsView.swift; sourceTree = "<group>"; };
 		499A398424ADEF7100F21E04 /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = "<group>"; };
 		499A398624ADF09200F21E04 /* EndpointRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRowView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		499A398A24AE1FE400F21E04 /* DetailViews */ = {
 			isa = PBXGroup;
 			children = (
+				4995CDB924BCC82400CDD5D9 /* RefreshButton.swift */,
 				499A398D24AE202300F21E04 /* StatisticsDetailViews */,
 				499A398C24AE201700F21E04 /* EndpointDetailViews */,
 				499A398B24AE200600F21E04 /* UsersDetailViews */,
@@ -184,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				49F3031124AB6D3200476406 /* UserDetailsView.swift */,
+				4927826324BD9DA500415EC8 /* AddUserView.swift */,
 				49F3031524AB6DC700476406 /* UserRowView.swift */,
 			);
 			path = UsersDetailViews;
@@ -338,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F3030E24AB51DC00476406 /* SettingsView.swift in Sources */,
+				4927826424BD9DA500415EC8 /* AddUserView.swift in Sources */,
+				4995CDBA24BCC82400CDD5D9 /* RefreshButton.swift in Sources */,
 				494563FF249649DF00DB4364 /* UIViewExt.swift in Sources */,
 				49F3030C24AB4A8200476406 /* constants.swift in Sources */,
 				49F9853B24AF270C00AAE325 /* StatisticsDetailRowView.swift in Sources */,

@@ -9,16 +9,24 @@
 import SwiftUI
 
 struct UserDetailsView: View {
+    
     @State private var users = [User]()
     @State private var showingUsersWarning = false
     @State private var showingNetworkError = false
     @State private var networkError: String? = nil
     @State private var offsets: IndexSet = IndexSet()
     @State private var showingCreateRootUserView = false
+    @State private var showingCreateUserView = false
     
     var body: some View {
         VStack {
             List{
+                Button(action: {
+                    showingCreateUserView = true
+                }) {
+                    Text("Add")
+                        .foregroundColor(.blue)
+                }
                 ForEach(users) {user in
                     UserRowView(user: user)
                 }
@@ -27,14 +35,21 @@ struct UserDetailsView: View {
                     Alert(title: Text("Delete user?"), message: Text("This action cannot be undone."), primaryButton: .destructive(Text("Delete"), action: deleteUsersForReal), secondaryButton: .cancel())
                 }
             }
+            .animation(.easeInOut)
             .onAppear(perform: refresh)
             NavigationLink(destination: CreateRootUserView(), isActive: $showingCreateRootUserView) {}
+                .sheet(isPresented: $showingCreateUserView) {
+                    AddUserView()
+                        .onDisappear {
+                            refresh()
+                        }
+                }
         }
         .actionSheet(isPresented: $showingNetworkError) {
             ActionSheet(title: Text("Network error"), message: Text(self.networkError ?? "unkown error"), buttons: [.default(Text("OK"))])
         }
         .navigationTitle("users")
-        .navigationBarItems(trailing: Button(action: refresh, label: {Image(systemName: "arrow.clockwise").foregroundColor(.black).padding()}))
+        .navigationBarItems(trailing: RefreshButton(callback: refresh))
     }
     
     func refresh() {

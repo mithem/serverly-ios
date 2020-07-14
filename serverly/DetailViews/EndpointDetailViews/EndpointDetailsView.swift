@@ -42,7 +42,7 @@ struct EndpointDetailsView: View {
                 }
         }
         .navigationTitle("endpoints")
-        .navigationBarItems(trailing: Button(action: loadEndpoints, label: {Image(systemName: "arrow.clockwise").foregroundColor(colorScheme == .dark ? .white : .black).padding()})
+        .navigationBarItems(trailing: RefreshButton(callback: loadEndpoints)
         )
     }
     
